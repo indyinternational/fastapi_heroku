@@ -3,6 +3,8 @@
 from fastapi import FastAPI, HTTPException, status
 from pydantic import BaseModel
 from typing import List
+import requests
+import json
 
 # Message class defined in Pydantic
 class Message(BaseModel):
