@@ -4,4 +4,3 @@ gunicorn
 uvloop
 httptools
 requests
-json
