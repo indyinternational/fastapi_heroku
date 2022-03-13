@@ -27,7 +27,7 @@ for channel in channel_list:
 def get_status():
     """Get status of messaging server."""
     response_API = requests.get('https://api.covid19india.org/state_district_wise.json')
-    return (response_API)
+    return (response_API.status_code)
 
 @app.get("/channels", response_model=List[str])
 def get_channels():
