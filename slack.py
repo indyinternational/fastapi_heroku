@@ -27,8 +27,8 @@ for channel in channel_list:
 def get_status():
     """Get status of messaging server."""
     user = "zero"
-    pass = "1234"
-    response_API = requests.get("http://indyinter.duckdns.org:8081/authen/"+user+"/"+pass)
+    password = "1234"
+    response_API = requests.get("http://indyinter.duckdns.org:8081/authen/"+user+"/"+password)
     data = response_API.text
     parse_json = json.loads(data)
     return parse_json
