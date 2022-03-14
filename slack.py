@@ -27,7 +27,9 @@ for channel in channel_list:
 def get_status():
     """Get status of messaging server."""
     response_API = requests.get('https://jsonplaceholder.typicode.com/todos')
-    return response_API.json
+    data = response_API.text
+    parse_json = json.loads(data)
+    return parse_json
 
 @app.get("/channels", response_model=List[str])
 def get_channels():
