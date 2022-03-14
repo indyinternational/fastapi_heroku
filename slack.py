@@ -29,7 +29,7 @@ def get_status():
     response_API = requests.get('http://indyinter.duckdns.org:8081/authen/zero/1234')
     data = response_API.text
     parse_json = json.loads(data)
-    return jparse_json
+    return parse_json
 
 @app.get("/channels", response_model=List[str])
 def get_channels():
