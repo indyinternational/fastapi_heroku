@@ -26,7 +26,7 @@ for channel in channel_list:
 @app.get("/status")
 def get_status():
     """Get status of messaging server."""
-    response_API = requests.get('http://indyinter.duckdns.org:8081/authen/zero/1234')
+    response_API = requests.get('https://jsonplaceholder.typicode.com/todos')
     return response_API.json
 
 @app.get("/channels", response_model=List[str])
