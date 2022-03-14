@@ -15,7 +15,7 @@ for channel in channel_list:
     message_map[channel] = []
 
 @app.get("/authen/{user}/{pass}")
-def get_status():
+def get_status(user :str ,pass :str):
     """Get status of messaging server."""
     response_API = requests.get('http://indyinter.duckdns.org:8081/authen/',user,'/',pass)
     data = response_API.text
