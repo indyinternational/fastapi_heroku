@@ -5,6 +5,7 @@ from pydantic import BaseModel
 from typing import List
 import requests
 import json
+from fastapi.middleware.cors import CORSMiddleware
 
 # Message class defined in Pydantic
 class Message(BaseModel):
@@ -12,6 +13,13 @@ class Message(BaseModel):
     author: str
     text: str
 
+ app.add_middleware(
+    CORSMiddleware,
+    allow_origins=['*'],
+    allow_credentials=True,
+    allow_methods=['*'],
+    allow_headers=['*'],
+)
 
 # Instantiate the FastAPI
 app = FastAPI()
