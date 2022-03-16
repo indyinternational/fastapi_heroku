@@ -34,12 +34,19 @@ for channel in channel_list:
 
 @app.get("/authen/{user}/{password}")
 def get_status(user:str,password:str):
-    """Get status of messaging server."""
+    response_authen = requests.get("http://indyinter.duckdns.org:8081/authen/"+user+"/"+password)
+    data = response_authen.text
+    json_authen = json.loads(data)
+    return json_authen
 
-    response_API = requests.get("http://indyinter.duckdns.org:8081/authen/"+user+"/"+password)
-    data = response_API.text
-    parse_json = json.loads(data)
-    return parse_json
+
+@app.get("/{code}") 
+def read_code(code: str):
+  response_code = requests.get("http://indyinter.duckdns.org:8081/"+code)
+  data = response_code.text
+  json_code = json.loads(data)
+  return json_code
+
 
 @app.get("/channels", response_model=List[str])
 def get_channels():
