@@ -16,6 +16,7 @@ class Message(BaseModel):
 # Instantiate the FastAPI
 app = FastAPI()
 
+origins = ["*"]
 
 app.add_middleware(
     CORSMiddleware,
