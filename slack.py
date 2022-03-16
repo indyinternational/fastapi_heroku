@@ -13,17 +13,23 @@ class Message(BaseModel):
     author: str
     text: str
 
- app.add_middleware(
-    CORSMiddleware,
-    allow_origins=['*'],
-    allow_credentials=True,
-    allow_methods=['*'],
-    allow_headers=['*'],
-)
-
 # Instantiate the FastAPI
 app = FastAPI()
 
+origins = [
+    "http://localhost.tiangolo.com",
+    "https://localhost.tiangolo.com",
+    "http://localhost",
+    "http://localhost:8080",
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 # In a real app, we would have a database.
 # But, let's keep it super simple for now!
 channel_list = ["general", "dev", "marketing"]
